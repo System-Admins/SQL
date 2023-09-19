@@ -22,6 +22,7 @@ FROM
     BEGIN
 SET
     @SQL = 'ALTER TABLE ' + QUOTENAME(@SchemaName) + '.' + QUOTENAME(@TableName) + ' DROP CONSTRAINT ' + QUOTENAME(@ForeignKeyName) 	-- Execute the DROP statement
+    PRINT @SQL
     EXEC sp_executesql @SQL FETCH NEXT 
 FROM
     cur_cursor INTO @SchemaName,
