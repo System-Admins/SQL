@@ -26,6 +26,7 @@ BEGIN
         IF @ConstraintType NOT IN ('PRIMARY_KEY_CONSTRAINT', 'FOREIGN_KEY_CONSTRAINT', 'INDEX_CONSTRAINT')
         BEGIN
             SET @SQL = 'ALTER TABLE [' + @SchemaName + '].[' + @TableName + '] DROP CONSTRAINT [' + @ConstraintName + ']'
+            PRINT @SQL
             EXEC sp_executesql @SQL
         END
     END TRY
